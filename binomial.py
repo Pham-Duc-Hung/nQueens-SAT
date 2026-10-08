@@ -1,5 +1,5 @@
 import time
-from pysat.solvers import Glucose3
+from pysat.solvers import Minisat22
 
 
 def generate_variables(n):
@@ -47,7 +47,7 @@ def solve_n_queens(n):
     clauses = generate_clauses(n, variables)
     total_vars = n * n
 
-    solver = Glucose3()
+    solver = Minisat22()
     for clause in clauses:
         solver.add_clause(clause)
 
@@ -96,6 +96,6 @@ def print_solution(result):
 
 
 if __name__ == "__main__":
-    n = 8
+    n = 100
     result = solve_n_queens(n)
     print_solution(result)

@@ -1,6 +1,6 @@
 import math
 import time
-from pysat.solvers import Glucose3
+from pysat.solvers import Minisat22
 
 
 class VarManager:
@@ -61,7 +61,7 @@ def at_most_one(clauses, variables, var_manager):
         binomial_AMO(clauses, variables)
         return
 
-    per_group = max(2, int(math.ceil(math.sqrt(m))))
+    per_group = max(2, math.ceil(math.sqrt(m)))
     groups = grouping_variables(variables, per_group)
 
     if len(groups) <= 1:
@@ -148,7 +148,7 @@ def solve_n_queens(n):
     clauses = generate_clauses(n, variables, var_manager)
     total_vars = var_manager.total_vars
 
-    solver = Glucose3()
+    solver = Minisat22()
     for clause in clauses:
         solver.add_clause(clause)
 
@@ -197,6 +197,6 @@ def print_solution(result):
 
 
 if __name__ == "__main__":
-    n = 8
+    n = 100
     result = solve_n_queens(n)
     print_solution(result)

@@ -1,1 +1,22 @@
-.idea/*
+# Thư mục tài liệu cá nhân
+RM/
+
+# Python cache & IDE
+__pycache__/
+*.py[cod]
+.idea/
+.vscode/
+pyrefly.toml
+thumbnails/
+
+# LaTeX build temp files & logs
+*.aux
+*.bbl
+*.blg
+*.log
+*.out
+*.abs
+*.tex
+
+# Toàn bộ file PDF
+*.pdf

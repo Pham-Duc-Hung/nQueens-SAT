@@ -1,5 +1,5 @@
 import time
-from pysat.solvers import Glucose3
+from pysat.solvers import Minisat22
 
 # quan ly bien phu
 class VarManager:
@@ -99,7 +99,7 @@ def solve_n_queens(n):
     clauses = generate_clauses(n, variables, var_manager)
     total_vars = var_manager.total_vars
 
-    solver = Glucose3()
+    solver = Minisat22()
     for clause in clauses:
         solver.add_clause(clause)
 
@@ -148,7 +148,7 @@ def print_solution(result):
 
 
 if __name__ == "__main__":
-    n = 8
+    n = 100
     result = solve_n_queens(n)
     print_solution(result)
 
